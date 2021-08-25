@@ -11,7 +11,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 
-class AchievementUnlockedEvent
+class AchievementUnlocked
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -23,7 +23,7 @@ class AchievementUnlockedEvent
      *
      * @return void
      */
-    public function __construct(string[] $achievement_name, User $user)
+    public function __construct(string $achievement_name, User $user)
     {
         $this->achievement_name = $achievement_name;
         $this->user = $user;

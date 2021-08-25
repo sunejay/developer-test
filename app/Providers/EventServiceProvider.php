@@ -6,6 +6,10 @@ use App\Events\LessonWatched;
 use App\Events\CommentWritten;
 use App\Listeners\LessonWatchedListener;
 use App\Listeners\CommentWrittenListener;
+use App\Events\AchievementUnblocked;
+use App\Events\BadgeUnblocked;
+use App\Listeners\AchievementListener;
+use App\Listeners\BadgeListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 

@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use App\Models\CommentWritten;
+use App\Events\CommentWritten;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function write(Request $request)
+    public function write($value='')
+    {
+        return view('comments.write');
+    }
+
+    public function save(Request $request)
     {
         $comment = new Comment();
 
@@ -17,7 +22,7 @@ class CommentController extends Controller
         ]);
 
         $comment->user_id = $request->user()->id;
-        $commentbody = $request->body;
+        $comment->body = $request->body;
         $comment->save();
 
         if ($comment) {
